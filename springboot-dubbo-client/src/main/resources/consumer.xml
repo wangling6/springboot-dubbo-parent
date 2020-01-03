@@ -20,6 +20,6 @@ http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!-- 使用xml配置方式创建远程服务代理，id即为provider.xml中暴露的服务的id-->
     <!-- 等同于dubbo:annotation 加上代码里的@Reference注解-->
     <dubbo:reference id="userService" interface="com.example.demo.api.service.UserService"/>
-
+    <dubbo:reference id="unionService" interface="com.example.demo.api.service.UnionService"/>
 
 </beans>

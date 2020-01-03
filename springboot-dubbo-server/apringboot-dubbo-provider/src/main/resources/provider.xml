@@ -28,5 +28,8 @@ http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:service interface="com.example.demo.api.service.UserService" ref="userService"/>
     <!-- 具体的实现bean，id与上面的ref要一致-->
     <bean id="userService" class="com.example.demo.provider.api.impl.UserServiceImpl"/>
+    <dubbo:service interface="com.example.demo.api.service.UnionService" ref="unionService"/>
+    <!-- 具体的实现bean，id与上面的ref要一致-->
+    <bean id="unionService" class="com.example.demo.provider.api.impl.UnionServiceImpl"/>
 
 </beans>
