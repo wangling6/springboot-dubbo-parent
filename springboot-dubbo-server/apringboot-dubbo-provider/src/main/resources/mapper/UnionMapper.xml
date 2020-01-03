@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.provider.dao.UnionMapper" >
+
+    <select id="findOneByName" parameterType="java.util.Map"  resultType="com.example.demo.api.model.Unions">
+        select id,union_name,union_ename,(select concat(name) group_names from member_group where group_id in (select group_id from unionsgrouprel where unions_id=b.id )) group_names,union_desc,if(unionstatus='1','已审批','待审批') unionstatus,date_format(create_time,'%Y-%m-%d %H:%i:%s')  create_time from unions b where 1=1
+
+        <if test="uname != null and uname != ''">
+            AND union_name like concat('%',#{uname},'%')
+        </if>
+        <if test="ename != null and ename != ''">
+            AND union_ename like concat('%',#{ename},'%')
+        </if>
+    </select>
+
+</mapper>
